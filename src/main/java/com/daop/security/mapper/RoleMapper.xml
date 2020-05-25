@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daop.security.mapper.RoleMapper">
+    <resultMap id="BaseMap" type="com.daop.security.entity.Role">
+        <id column="rid" property="rid" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="rolename" property="rolename" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="listRolesById" resultMap="BaseMap">
+        select r.rid, r.name, r.rolename
+        from sys_role r,
+             sys_user_role ur
+        where ur.rid = r.rid
+          and ur.uid = #{id}
+    </select>
+
+</mapper>

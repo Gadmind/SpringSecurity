@@ -1,0 +1,23 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    druid:
+      security:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        username: root
+        password: 123456
+      test-master:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/test-master?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        username: root
+        password: 123456
+      test-slave:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/test-slave?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        username: root
+        password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath:/com.daop/security/mapper/*.xml,classpath:/com.daop/moredatasource/mapper/*.xml
